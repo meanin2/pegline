@@ -1,0 +1,307 @@
+{
+  "scope": "Static source/configuration audit only; NOT C# compilation or application runtime verification.",
+  "platform": "Linux x86_64",
+  "tool_availability": {
+    "dotnet": false,
+    "mono": false,
+    "csc": false,
+    "mcs": false,
+    "wine": false
+  },
+  "checks_passed": 31,
+  "checks_failed": 0,
+  "authored_csharp_tests": 111,
+  "executed_csharp_tests": 0,
+  "windows_compilation": "NOT RUN",
+  "windows_desktop_acceptance": "NOT RUN",
+  "checks": [
+    {
+      "check": "C# source structure: src/Capture.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/Controller.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/Core.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/EditorModel.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/EditorSurface.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/EditorWindow.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/Flight.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/Imaging.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/LibraryWindow.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/Native.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/Program.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/Shelf.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/ShelfAutomation.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/Sounds.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/Storage.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: src/Ui.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: tests/TestProgram.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "C# source structure: tests/VisualSmoke.cs",
+      "status": "PASS",
+      "detail": "Literal/comment boundaries and delimiters; selected language-version tripwires only."
+    },
+    {
+      "check": "XML parse: Pegline.csproj",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "check": "XML parse: app.config",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "check": "XML parse: app.manifest",
+      "status": "PASS",
+      "detail": true
+    },
+    {
+      "check": "Dependency declarations",
+      "status": "PASS",
+      "detail": "Framework assemblies only; no third-party package declarations."
+    },
+    {
+      "check": "No app network/telemetry/updater surface (static)",
+      "status": "PASS",
+      "detail": "No matched network-client APIs, endpoints, or telemetry/updater SDK identifiers. External viewers and OS services are outside this check."
+    },
+    {
+      "check": "Offline, fail-closed build/launch scripts",
+      "status": "PASS",
+      "detail": "Application compilation, test compilation, and test execution gate the launcher; no package restore/download commands."
+    },
+    {
+      "check": "File-safety implementation tripwires",
+      "status": "PASS",
+      "detail": "Selected source-level guardrails found; not an execution or race-safety proof."
+    },
+    {
+      "check": "Editor identity, transaction and edited-copy safeguards (static)",
+      "status": "PASS",
+      "detail": "Editor regression guardrails present; behavior requires executing the authored tests."
+    },
+    {
+      "check": "Collection lifecycle and clipboard safeguards (static)",
+      "status": "PASS",
+      "detail": "Lifecycle/pixel guardrails present, not proof of native behavior or privacy controls being honored by Windows."
+    },
+    {
+      "check": "Windows-only visual verification harness (static)",
+      "status": "PASS",
+      "detail": "Optional real-WPF rendering harness wired; not executed in this environment."
+    },
+    {
+      "check": "C# test inventory and failure contract",
+      "status": "PASS",
+      "detail": "111 uniquely named C# cases inventoried, NOT executed."
+    },
+    {
+      "check": "Original icon container",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "Required delivery documents",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "authored_test_names": [
+    "layout/original-constants",
+    "layout/rope-symmetry",
+    "layout/sag-capped",
+    "layout/centering",
+    "layout/capacity-clamps",
+    "layout/card-wide",
+    "layout/card-tall",
+    "animation/cubic-endpoints",
+    "animation/spring-endpoints",
+    "visibility/dwell",
+    "visibility/retract-delay",
+    "visibility/peek-hold",
+    "visibility/drag-hold",
+    "visibility/pinned-until-visited",
+    "visibility/fullscreen",
+    "visibility/click-suppresses",
+    "visibility/no-items",
+    "dedup/opposite-channel",
+    "dedup/same-channel-is-new",
+    "dedup/pair-only-once",
+    "dedup/expiry",
+    "dedup/different-content",
+    "dedup/managed-never-paired",
+    "files/containment-boundary",
+    "files/parent-traversal",
+    "files/unique-names",
+    "files/atomic-replacement",
+    "files/json-round-trip",
+    "files/corrupt-json-fallback",
+    "files/null-json-fallback",
+    "files/missing-preferences-defaults",
+    "history/undo-redo",
+    "history/new-action-clears-redo",
+    "shortcuts/defaults",
+    "shortcuts/printscreen",
+    "shortcuts/no-global-typing-hijack",
+    "shortcuts/invalid-modifier-only",
+    "shortcuts/disabled",
+    "editor/clone-independent-ink",
+    "editor/point-segment-distance",
+    "editor/sketch-line",
+    "editor/sketch-ellipse",
+    "image/png-round-trip",
+    "image/unsupported-overwrite-blocked",
+    "editor/redaction-renders-opaque",
+    "editor/crop-dimensions-and-undo",
+    "editor/rotation-dimensions",
+    "editor/all-vector-tools-render",
+    "editor/save-flag",
+    "editor/new-annotations-have-distinct-identities",
+    "editor/history-clone-preserves-identity",
+    "editor/new-copy-owns-point-list",
+    "editor/undo-to-original-is-clean",
+    "editor/redo-to-saved-revision-is-clean",
+    "editor/cancel-restores-layers-and-clean-state",
+    "editor/cancel-preserves-previous-redo",
+    "editor/no-op-gesture-does-not-add-history",
+    "editor/no-op-gesture-preserves-redo",
+    "editor/gesture-is-one-undo-step",
+    "editor/undo-during-gesture-cancels-it",
+    "editor/branch-does-not-reuse-saved-revision",
+    "editor/crop-preserves-editable-layer",
+    "editor/crop-undo-restores-layer-coordinates",
+    "editor/crop-outside-is-no-op",
+    "editor/crop-subpixel-is-no-op",
+    "editor/crop-clamps-to-image",
+    "editor/fractional-redaction-covers-whole-edge-pixels",
+    "editor/redaction-does-not-change-base",
+    "editor/outline-hit-does-not-block-inner-mark",
+    "editor/magnifier-keeps-output-dimensions",
+    "image/transparent-png-remains-transparent",
+    "image/dib-zero-alpha-keeps-rgb",
+    "image/dib-partial-alpha-is-preserved",
+    "image/dib-rgb-padding-is-not-alpha",
+    "image/dib-invalid-buffer-rejected",
+    "image/exif-five-is-transpose",
+    "image/exif-seven-is-transverse",
+    "image/exif-orientation-one-is-unchanged",
+    "image/thumbnail-does-not-enlarge",
+    "image/thumbnail-bounds",
+    "files/create-must-not-overwrite",
+    "files/checked-write-rejects-external-edit",
+    "files/checked-write-preserves-backup",
+    "files/failed-backup-prevents-overwrite",
+    "files/checked-new-file-rejects-name-race",
+    "files/read-size-cap",
+    "files/empty-canonical-path-rejected",
+    "files/no-temporary-files-after-failure",
+    "shortcuts/canonical-order-and-synonyms",
+    "shortcuts/equivalent-duplicates-rejected",
+    "shortcuts/disabled-slots-can-repeat",
+    "shortcuts/repeated-modifier-rejected",
+    "shortcuts/non-ascii-key-rejected",
+    "shortcuts/function-range",
+    "catalog/bounded-reference-history",
+    "catalog/reimport-promotes-not-duplicates",
+    "catalog/forget-leaves-file",
+    "catalog/invalid-entries-skipped",
+    "preferences/new-features-default-on-upgrade",
+    "preferences/normalization",
+    "capture/repeat-region-validation",
+    "capture/repeat-region-without-topology-rejected",
+    "geometry/clamp-nonfinite",
+    "geometry/square-horizontal-drag",
+    "geometry/square-negative-drag",
+    "dedup/interleaved-identical-captures",
+    "dedup/clock-reset-clears-twins",
+    "dedup/null-content-never-matches",
+    "store/injected-root-does-not-touch-user-state",
+    "editor/shift-line-snaps-horizontal",
+    "editor/shift-shape-stays-square"
+  ],
+  "source_sha256": {
+    "src/Capture.cs": "c8ff0b5cda102c3e96cdd567717b4718a4c0a341712320d39b244a593d3dfc52",
+    "src/Controller.cs": "0dfe8378b481ddfca1487f7252d8c89b3d22aefba9230f3576a16aed0a88da87",
+    "src/Core.cs": "f0aad58ce1837020ffdb41fa248cc198fbb37f25c6d6bcb27db8d1e28bf64c4c",
+    "src/EditorModel.cs": "d004252e2a0ee10520227bf66942c1bc0d684926bb11ce9763d0aa330c50a4fa",
+    "src/EditorSurface.cs": "65c11b890c2f3a907db2e2ea3f6d674edc0551f758709f7fb5079059e4d03521",
+    "src/EditorWindow.cs": "73657a3f08a205b60abc39ae8d285d5de20fe475322c7c9bad9837bcf3ab5050",
+    "src/Flight.cs": "5c12b8b46cc629fddf5c8d911ce6df08df9a877b73368f4deba9e492512b5a5c",
+    "src/Imaging.cs": "80a8abd6b2936e48784124bfc0edf2f23917c0dd3ec3c219e4e57ec1fdd00df8",
+    "src/LibraryWindow.cs": "d19ee95f9069d91ea6329853a3f2d8908986b29e2928e30d4f5146fb6139daa1",
+    "src/Native.cs": "ba115fb04a15c4f6aadbcc7ca9fb25b2e64cbc0c4b463d25d8cf115fb4047801",
+    "src/Program.cs": "ebe57408fda589fc7c88fc9a081ba508d83cdcfbafc167d7f345ed2108c7e8ae",
+    "src/Shelf.cs": "79e33b7ab45a7a36965b3a8c97b73ad939aeedc896a549dc5bf43f62a6f46448",
+    "src/ShelfAutomation.cs": "e696902b9eb777085adc4c32d439fca76dae42374ac9ab84cecdf7c80eba3dab",
+    "src/Sounds.cs": "25928a07bf3cd75a2c9b7c985e99ff142f36d4f54b126d4629899851037e6138",
+    "src/Storage.cs": "f1e643beb8acc0297c0289bb131da671fd5b3f2eee1f1262908de85872275345",
+    "src/Ui.cs": "98db8202a3ed081440d4b6826a3bcab88b71e5aa018adc0765f890bbe0a82830",
+    "tests/TestProgram.cs": "8f89e5fac9570d54d404bb10a85f16500e5d27f8e81b2529e50b65c1dbe04ec2",
+    "tests/VisualSmoke.cs": "794485ad664152a22f16dee78f7ef5aae578d1a0c61e669b753617f17bcb2110"
+  }
+}

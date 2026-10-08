@@ -1,0 +1,13 @@
+{
+  "version": "0.2.1-beta.1",
+  "review_date": "2026-10-08",
+  "baseline_archive_sha256": "13f1123d6cb86edd29dc814192e8064c4184fc60e9c7f80fc0d8c34cc0bf4c18",
+  "authored_csharp_test_cases": 113,
+  "executed_csharp_test_cases": 113,
+  "application_source_files": 16,
+  "compiled": true,
+  "windows_desktop_verified": false,
+  "telemetry_added": false,
+  "third_party_runtime_packages": [],
+  "source_archive_sha256": "3b5a8ddf7ea34f81de3d37e39acc822b47bbc5e295b155cc6dd59112b6eb2383"
+}

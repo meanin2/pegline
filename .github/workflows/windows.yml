@@ -1,0 +1,33 @@
+name: Windows build and tests
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile, test and render WPF controls
+        shell: cmd
+        run: Verify-Windows.cmd
+      - name: Static source audit
+        shell: pwsh
+        run: python tools/static_audit.py --json bin/static-audit.json
+      - name: Package portable build
+        shell: pwsh
+        run: ./tools/package.ps1
+      - name: Upload portable build and verification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Pegline-windows-build
+          path: |
+            bin/Pegline-*-win-x64.zip*
+            bin/build.log
+            bin/test-results.txt
+            bin/visual-smoke.log
+            bin/visual-smoke/
+            bin/static-audit.json

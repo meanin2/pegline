@@ -1,0 +1,116 @@
+{
+  "scope": "Pygments lexical/delimiter scan only; not C# parsing, type checking, compilation or execution.",
+  "files": [
+    {
+      "file": "src/Capture.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "c8ff0b5cda102c3e96cdd567717b4718a4c0a341712320d39b244a593d3dfc52"
+    },
+    {
+      "file": "src/Controller.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "0dfe8378b481ddfca1487f7252d8c89b3d22aefba9230f3576a16aed0a88da87"
+    },
+    {
+      "file": "src/Core.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "f0aad58ce1837020ffdb41fa248cc198fbb37f25c6d6bcb27db8d1e28bf64c4c"
+    },
+    {
+      "file": "src/EditorModel.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "d004252e2a0ee10520227bf66942c1bc0d684926bb11ce9763d0aa330c50a4fa"
+    },
+    {
+      "file": "src/EditorSurface.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "65c11b890c2f3a907db2e2ea3f6d674edc0551f758709f7fb5079059e4d03521"
+    },
+    {
+      "file": "src/EditorWindow.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "73657a3f08a205b60abc39ae8d285d5de20fe475322c7c9bad9837bcf3ab5050"
+    },
+    {
+      "file": "src/Flight.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "5c12b8b46cc629fddf5c8d911ce6df08df9a877b73368f4deba9e492512b5a5c"
+    },
+    {
+      "file": "src/Imaging.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "80a8abd6b2936e48784124bfc0edf2f23917c0dd3ec3c219e4e57ec1fdd00df8"
+    },
+    {
+      "file": "src/LibraryWindow.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "d19ee95f9069d91ea6329853a3f2d8908986b29e2928e30d4f5146fb6139daa1"
+    },
+    {
+      "file": "src/Native.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "ba115fb04a15c4f6aadbcc7ca9fb25b2e64cbc0c4b463d25d8cf115fb4047801"
+    },
+    {
+      "file": "src/Program.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "ebe57408fda589fc7c88fc9a081ba508d83cdcfbafc167d7f345ed2108c7e8ae"
+    },
+    {
+      "file": "src/Shelf.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "79e33b7ab45a7a36965b3a8c97b73ad939aeedc896a549dc5bf43f62a6f46448"
+    },
+    {
+      "file": "src/ShelfAutomation.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "e696902b9eb777085adc4c32d439fca76dae42374ac9ab84cecdf7c80eba3dab"
+    },
+    {
+      "file": "src/Sounds.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "25928a07bf3cd75a2c9b7c985e99ff142f36d4f54b126d4629899851037e6138"
+    },
+    {
+      "file": "src/Storage.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "f1e643beb8acc0297c0289bb131da671fd5b3f2eee1f1262908de85872275345"
+    },
+    {
+      "file": "src/Ui.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "98db8202a3ed081440d4b6826a3bcab88b71e5aa018adc0765f890bbe0a82830"
+    },
+    {
+      "file": "tests/TestProgram.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "8f89e5fac9570d54d404bb10a85f16500e5d27f8e81b2529e50b65c1dbe04ec2"
+    },
+    {
+      "file": "tests/VisualSmoke.cs",
+      "status": "PASS",
+      "issues": [],
+      "sha256": "794485ad664152a22f16dee78f7ef5aae578d1a0c61e669b753617f17bcb2110"
+    }
+  ],
+  "passed": 18,
+  "failed": 0,
+  "csharp_tests_executed": 0
+}
