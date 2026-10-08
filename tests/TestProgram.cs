@@ -23,6 +23,7 @@ namespace Pegline.Tests
         public static int Main(string[] args)
         {
             if (args.Length == 2 && args[0] == "--render-smoke") return VisualSmoke.Run(Path.GetFullPath(args[1]));
+            if (args.Length == 2 && args[0] == "--readme-media") return VisualSmoke.Run(Path.GetFullPath(args[1]), true);
             if (args.Length == 1 && args[0] == "--integration-smoke") return IntegrationSmoke.Run();
             root = Path.Combine(Path.GetTempPath(), "Pegline-tests-" + Guid.NewGuid().ToString("N")); Directory.CreateDirectory(root);
             try

@@ -13,7 +13,7 @@ namespace Pegline.Tests
 {
     internal static class VisualSmoke
     {
-        public static int Run(string destination)
+        public static int Run(string destination, bool readmeMedia = false)
         {
             string scratch = Path.Combine(Path.GetTempPath(), "Pegline-visual-" + Guid.NewGuid().ToString("N"));
             Directory.CreateDirectory(scratch); Directory.CreateDirectory(destination);
@@ -57,6 +57,22 @@ namespace Pegline.Tests
                                 shelf.DrawDecorations(dc, false); dc.DrawImage(interactive, new Rect(0, 0, 1440, 210)); shelf.DrawDecorations(dc, true);
                             }
                             Save(composition, 1440, 210, Path.Combine(destination, "shelf-" + theme + ".png"));
+                            if (readmeMedia && theme == "light")
+                            {
+                                var cards = controller.Cards.ToArray();
+                                for (int count = 0; count <= cards.Length; count++)
+                                {
+                                    controller.Cards.Clear(); controller.Cards.AddRange(cards.Take(count));
+                                    shelf.InvalidateVisual(); Pump();
+                                    var frame = new DrawingVisual();
+                                    using (var dc = frame.RenderOpen())
+                                    {
+                                        dc.DrawRectangle(Ui.Panel, null, new Rect(0, 0, 1440, 210));
+                                        shelf.DrawDecorations(dc, false); dc.DrawImage(Raster(shelf, 1440, 210), new Rect(0, 0, 1440, 210)); shelf.DrawDecorations(dc, true);
+                                    }
+                                    Save(frame, 1440, 210, Path.Combine(destination, "shelf-step-" + count + ".png"));
+                                }
+                            }
                         }
                         var editor = new EditorWindow(controller.Cards[0].Path, store) { ShowActivated = false, Width = 1180, Height = 760 };
                         try
@@ -67,6 +83,21 @@ namespace Pegline.Tests
                             document.Layers.Add(new Mark { Kind = MarkKind.Text, Bounds = new Rect(290, 175, 320, 100), Text = "A clear point.\nA clean screenshot.", FontSize = 26, Stroke = Colors.DarkSlateGray });
                             document.Touch(); document.MarkSaved();
                             editor.Show(); Pump(); SnapshotWindow(editor, Path.Combine(destination, "editor-" + theme + ".png"));
+                            if (readmeMedia && theme == "light")
+                            {
+                                document.Layers.Clear(); document.Touch(); Pump();
+                                SnapshotWindow(editor, Path.Combine(destination, "markup-step-0.png"));
+                                document.BeginEdit();
+                                document.Layers.Add(new Mark { Kind = MarkKind.Arrow, Bounds = new Rect(80, 150, 170, 100), Stroke = Colors.OrangeRed, Thickness = 5 });
+                                document.Touch(); document.CommitEdit(); Pump();
+                                SnapshotWindow(editor, Path.Combine(destination, "markup-step-1.png"));
+                                document.BeginEdit();
+                                document.Layers.Add(new Mark { Kind = MarkKind.Text, Bounds = new Rect(290, 175, 320, 100), Text = "A clear point.\nA clean screenshot.", FontSize = 26, Stroke = Colors.DarkSlateGray });
+                                document.Touch(); document.CommitEdit(); Pump();
+                                SnapshotWindow(editor, Path.Combine(destination, "markup-step-2.png"));
+                                document.Undo(); Pump(); SnapshotWindow(editor, Path.Combine(destination, "markup-step-3.png"));
+                                document.MarkSaved();
+                            }
                         }
                         finally { editor.Close(); }
                         var library = new LibraryWindow(controller) { ShowActivated = false };
