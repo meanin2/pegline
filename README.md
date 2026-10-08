@@ -1,6 +1,6 @@
 # Pegline 0.2.1 beta — Windows screenshot clothesline
 
-**Windows beta available:** application compiled; **113 tests passed**, six WPF views rendered and inspected, native shelf lifecycle checks passed. Full interactive desktop acceptance remains pending. See [verification](VERIFICATION.md), [local code review](docs/LOCAL_REVIEW.md), and the [build/download page](https://meanin2.github.io/pegline/).
+**Windows beta available:** application compiled; **113 tests passed**, six WPF views rendered and inspected, native shelf lifecycle checks passed. Full interactive desktop acceptance remains pending. See [verification](VERIFICATION.md), [local code review](docs/LOCAL_REVIEW.md), and the [release/download page](https://github.com/meanin2/pegline/releases/tag/v0.2.1-beta.1).
 
 [Download portable Windows beta](https://github.com/meanin2/pegline/releases/tag/v0.2.1-beta.1) · [Windows CI](https://github.com/meanin2/pegline/actions/workflows/windows.yml)
 
