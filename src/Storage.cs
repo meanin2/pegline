@@ -26,9 +26,12 @@ namespace Pegline
         public readonly string Root, Inbox, Recovery, PreferencesPath, SessionPath, CatalogPath;
         public readonly CaptureCatalog Catalog;
         public Preferences Preferences;
+        internal readonly string StandardScreenshotsFolder;
         public Store() : this(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Pegline")) { }
-        internal Store(string root)
+        internal Store(string root) : this(root, null) { }
+        internal Store(string root, string screenshotsFolder)
         {
+            StandardScreenshotsFolder = screenshotsFolder == null ? Native.ScreenshotsFolder() : Path.GetFullPath(screenshotsFolder);
             Root = Path.GetFullPath(root);
             Inbox = System.IO.Path.Combine(Root, "Inbox"); Recovery = System.IO.Path.Combine(Root, "Recovery");
             PreferencesPath = System.IO.Path.Combine(Root, "preferences.json"); SessionPath = System.IO.Path.Combine(Root, "session.json");
@@ -51,7 +54,7 @@ namespace Pegline
         public bool IsOwned(Card card) { return card.Owned && SafeFiles.OwnedLocation(Inbox, card.Path); }
         public string SaveCapture(BitmapSource image)
         {
-            string folder = Preferences.ManagedInbox ? Inbox : Native.ScreenshotsFolder(); Directory.CreateDirectory(folder);
+            string folder = Preferences.ManagedInbox ? Inbox : StandardScreenshotsFolder; Directory.CreateDirectory(folder);
             string path = SafeFiles.Unique(folder, "Capture " + DateTime.Now.ToString("yyyy-MM-dd HHmmss-fff") + ".png");
             SafeFiles.AtomicCreate(path, Images.Encode(image, ".png")); return path;
         }

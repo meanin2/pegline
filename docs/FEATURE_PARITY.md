@@ -1,8 +1,10 @@
-# Feature parity ledger
+# Feature verification and platform differences
 
 Reference: Tendedero `d99145477f1b86c0d11d205868ab507a57a54980` (pinned source in the preceding review). Windows implementation reference: Cordel `10f38049eee84032c9c0cd11a681a1701b511b93`.
 
-**Every “implemented” entry below means implemented in source, not compiled or verified on Windows.** The Windows acceptance matrix is the release gate. This is not a checkmark list certifying a finished port.
+**Current evidence:** Windows compilation and 113 regressions passed; six WPF views rendered and inspected; native shelf lifecycle and 13 isolated controller integration checks passed. Entries marked source-present are not automatically desktop-verified. Full interactive acceptance remains pending.
+
+Upstream reviewed October 8, 2026 at `ed0618a67cc59e0a8621b97bb5e32ab9af3b0b69`, seven commits beyond the pinned reference. Changes include translation resources/Simplified Chinese, documentation, and macOS menu-band edge containment. Pegline currently provides English/Spanish; latest upstream language coverage differs. [Exact upstream comparison](https://github.com/alejandrobujan/tendedero/compare/d99145477f1b86c0d11d205868ab507a57a54980...ed0618a67cc59e0a8621b97bb5e32ab9af3b0b69).
 
 ## Clothesline and interaction
 
@@ -14,8 +16,8 @@ Reference: Tendedero `d99145477f1b86c0d11d205868ab507a57a54980` (pinned source i
 | New image peeks for 2.5 seconds | Explicit arrival state independent of item count | Source present, including full shelf arrival. |
 | Hide after pointer leaves for 0.5 seconds | Visibility state with interaction guards | Source present. |
 | Shortcut-opened shelf stays until visited or toggled | Pinned state | Source present. |
-| 210-point strip, 174-point spacing, maximum 150-point card width | Original numerical geometry reproduced in `ShelfLayout` | Numeric tests authored, not run. |
-| Curved rope, sag dependent on width | Same parabolic sag relationship | Renderer not visually compared on Windows. |
+| 210-point strip, 174-point spacing, maximum 150-point card width | Original numerical geometry reproduced in `ShelfLayout` | Geometry regression cases passed. |
+| Curved rope, sag dependent on width | Same parabolic sag relationship | Light/dark WPF output inspected; side-by-side Mac interaction comparison pending. |
 | Clip, frame, rounded corners, aspect ratio | Custom WPF drawing; generated metallic clip | Frame is a translucent gradient approximation, not true live Apple backdrop material. |
 | Random tilt, arrival spring, wind, hover/press/copy feedback | Analytic damped springs and per-card state | Native animation and high-refresh smoothness not measured. |
 | Capture flies from the captured region to the line | Built-in capture returns exact physical ROI; layered-window flight | Implemented for Pegline capture. External image origin unknown → drop-in instead of invented coordinates. |
@@ -83,13 +85,13 @@ English/Spanish menus, appearance preference, sound toggle, synthetic sounds, st
 
 ## 0.2 additions beyond the original shelf
 
-Local 200-reference library with search/import/edit/copy/re-hang/forget; repeat-region capture guarded by monitor topology; pixel loupe and cursor nudges; paused collection and quiet arrivals; base-image comparison and copy-edited-result; keyboard tool/zoom/nudge controls; virtual shelf automation peers. These additions are source-present and **NOT Windows-verified**. Reference-style dimensions and screen-width-dependent shelf capacity are retained.
+Local 200-reference library with search/import/edit/copy/re-hang/forget; repeat-region capture guarded by monitor topology; pixel loupe and cursor nudges; paused collection and quiet arrivals; base-image comparison and copy-edited-result; keyboard tool/zoom/nudge controls; virtual shelf automation peers. Library collection, re-hang, forget, import, persistence and image refresh/prune passed isolated native integration checks. Other additions remain source-present without full desktop acceptance. Reference-style dimensions and screen-width-dependent shelf capacity are retained.
 
-New source details and regression cases are documented in `REVIEW_CHANGES.md`. The optional real-WPF render harness does not run until explicitly invoked on Windows.
+New source details and regression cases are documented in `REVIEW_CHANGES.md`. The real-WPF render harness ran successfully on Windows.
 
 ## Release gates still open
 
-1. Compile and execute the authored tests on Windows; fix any compiler/runtime issues revealed.
+1. Completed: compile and execute 113 regression tests, six WPF renders, shelf lifecycle, and 13 isolated controller integration checks.
 2. Run the native acceptance checklist with real Shell/clipboard targets and displays.
 3. Compare the actual rendering and interaction feel side by side with the original reference.
-4. Resolve any remaining feature, material, codec, and integration differences before calling the build a fully accepted parity release.
+4. Resolve any remaining feature, material, codec, and integration differences before claiming those specific behaviors verified.

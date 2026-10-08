@@ -1,10 +1,14 @@
-# Windows acceptance — all cases initially NOT RUN
+# Windows desktop acceptance
 
 Use disposable test screenshots and ordinary, non-elevated applications first. Record Windows version/build, Framework version, monitor sizes/scales/positions, screenshot-tool version, app version, and the current source hash. Do not mark a test passed based on source inspection or a compile alone.
 
+## Recorded evidence — October 8, 2026
+
+Compilation, 113 regressions, six synthetic WPF views and native shelf window lifecycle passed on Windows 11 25H2 build 26200.9457, x64, CLR 4.0.30319.42000. `IntegrationSmoke` additionally passed 13 checks with synthetic files in an isolated store: watcher baseline/new/change/delete, library tracking/re-hang/forget, manual import, external discard, session restore, clear, and file preservation. These call real controller paths, not pointer gestures. Unmarked cases below remain NOT RUN; do not infer whole-row acceptance from partial coverage.
+
 ## 1. Build, launch, lifecycle
 
-Run `Build-and-run.cmd` from a path containing spaces and then a non-ASCII path. Save `bin/build.log` and `bin/test-results.txt`. All 111 C# cases must execute with zero failures before app launch. Verify the tray icon, first-use hint, no taskbar/Alt-Tab shelf entry, quit, relaunch persistence, and second launch toggling the existing instance. Observe that canceling an unsaved editor close prevents a normal Quit from discarding the session's edits.
+Run `Build-and-run.cmd` from a path containing spaces and then a non-ASCII path. Save `bin/build.log` and `bin/test-results.txt`. All 113 C# cases must execute with zero failures before app launch. Verify the tray icon, first-use hint, no taskbar/Alt-Tab shelf entry, quit, relaunch persistence, and second launch toggling the existing instance. Observe that canceling an unsaved editor close prevents a normal Quit from discarding the session's edits.
 
 Opt into startup, sign out/in, and verify the exact executable starts once. Opt out and confirm the Run entry is removed. Do not move a startup-enabled build without disabling startup first.
 

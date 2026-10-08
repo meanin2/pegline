@@ -26,7 +26,7 @@ if errorlevel 1 (
   exit /b 1
 )
 copy /y app.config bin\Pegline.exe.config >nul
-"%FX%\csc.exe" /nologo /noconfig /langversion:5 /codepage:65001 /utf8output /platform:x64 /optimize+ /warn:4 /target:exe /main:Pegline.Tests.TestProgram /win32manifest:app.manifest /out:bin\Pegline.Tests.exe %REFS% /recurse:src\*.cs tests\TestProgram.cs tests\VisualSmoke.cs >> bin\build.log 2>&1
+"%FX%\csc.exe" /nologo /noconfig /langversion:5 /codepage:65001 /utf8output /platform:x64 /optimize+ /warn:4 /target:exe /main:Pegline.Tests.TestProgram /win32manifest:app.manifest /out:bin\Pegline.Tests.exe %REFS% /recurse:src\*.cs tests\TestProgram.cs tests\VisualSmoke.cs tests\IntegrationSmoke.cs >> bin\build.log 2>&1
 if errorlevel 1 (
   type bin\build.log
   echo TEST BUILD FAILED. See bin\build.log.

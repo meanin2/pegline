@@ -137,7 +137,7 @@ namespace Pegline
             int generation = ++collectionGeneration;
             foreach (var w in watchers) w.Dispose(); watchers.Clear();
             if (CollectionPaused || disposed) return;
-            string screenshots = Native.ScreenshotsFolder();
+            string screenshots = store.StandardScreenshotsFolder;
             try { Directory.CreateDirectory(screenshots); } catch (Exception e) { Info(e.Message); }
             var folders = new List<string> { screenshots, store.Inbox }; folders.AddRange(store.Preferences.Folders);
             foreach (string folder in folders.Distinct(StringComparer.OrdinalIgnoreCase))

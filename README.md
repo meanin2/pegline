@@ -1,14 +1,23 @@
 # Pegline 0.2.1 beta — Windows screenshot clothesline
 
-**Windows beta available:** application compiled; **113 tests passed**, six WPF views rendered and inspected, native shelf lifecycle checks passed. Full interactive desktop acceptance remains pending. See [verification](VERIFICATION.md), [local code review](docs/LOCAL_REVIEW.md), and the [release/download page](https://github.com/meanin2/pegline/releases/tag/v0.2.1-beta.1).
+**Windows beta available:** application compiled; **113 tests passed**, six WPF views rendered and inspected, native shelf lifecycle checks passed. Full interactive desktop acceptance remains pending. See [verification](VERIFICATION.md), [local code review](docs/LOCAL_REVIEW.md), and the [release/download page](https://github.com/meanin2/pegline/releases/tag/v0.2.1-beta.2).
 
-[Download portable Windows beta](https://github.com/meanin2/pegline/releases/tag/v0.2.1-beta.1) · [Windows CI](https://github.com/meanin2/pegline/actions/workflows/windows.yml)
+[Website and interactive demos](https://pegline-windows-builds.meanin2.chatgpt.site) · [Install / update / remove](docs/INSTALL.md) · [Download portable Windows beta](https://github.com/meanin2/pegline/releases/tag/v0.2.1-beta.2) · [Windows CI](https://github.com/meanin2/pegline/actions/workflows/windows.yml)
 
 Extract the portable ZIP and run `Pegline.exe` with its `.exe.config` beside it. The unsigned application targets Windows 11 x64 with .NET Framework 4.8/4.8.1. No installer or administrator rights required.
 
-Pegline recreates Tendedero's screenshot clothesline workflow for Windows under a new name and original icon. It implements its own screenshot capture and image editor rather than substituting Paint. It is not affiliated with or endorsed by Tendedero's author.
+Pegline is a native Windows screenshot shelf, capture tool, and image editor inspired by [Tendedero](https://github.com/alejandrobujan/tendedero). Keep screenshots nearby, annotate them, and find them again in a searchable local library.
 
-## Build and start on Windows
+## Download and install
+
+1. Open the [release page](https://github.com/meanin2/pegline/releases) and download the `Pegline-<version>-win-x64.zip` asset, not GitHub’s source-code ZIP.
+2. Right-click the ZIP in File Explorer, choose **Extract All**, and extract to a stable folder such as `Documents\Pegline`.
+3. Double-click **`Pegline.exe`**. Keep **`Pegline.exe.config`** beside it. No installer or administrator rights required.
+4. Find Pegline in the system tray, including hidden icons. Press **`Ctrl+Alt+T`** to show the shelf or **`Ctrl+Alt+4`** for your first region capture. Right-click the tray icon for Settings and Quit.
+
+The beta is unsigned. See the [complete guide](docs/INSTALL.md) for checksums, first launch, updates, removal, and troubleshooting. The website contains two browser simulations; native capture, clipboard, and desktop integration require the Windows application.
+
+## Build from source on Windows
 
 1. Extract **the entire ZIP** into a regular local folder, for example `Documents\Pegline`. Do not run a script from inside the ZIP viewer. Keep this folder in a stable location if enabling startup later.
 2. Double-click **`Build-and-run.cmd`**. No administrator rights should be needed.
@@ -59,7 +68,7 @@ Shortcuts are configurable. Registration failure is reported instead of overridi
 
 ## What has been coded
 
-**The clothesline:** original-reference layout dimensions, parabolic rope, metallic clips, translucent rounded frames, preserved aspect ratios, random tilt, spring arrival, wind nudges, hover/press/copy feedback, animated show/hide, origin-to-card flight, screen-height falls, screen-width-dependent capacity, persistence, and missing-file removal. The overlay separates decorative rope/shadows/clips into non-interactive windows; the interactive window paints only cards. No-activation and per-pixel click-through behavior still requires native validation. Fullscreen detection, monitor selection, and following the active virtual desktop are implemented but need real desktop testing.
+**The clothesline:** parabolic rope, metallic clips, translucent rounded frames, preserved aspect ratios, random tilt, spring arrival, wind nudges, hover/press/copy feedback, animated show/hide, origin-to-card flight, screen-height falls, screen-width-dependent capacity, persistence, and missing-file removal. The overlay separates decorative rope/shadows/clips into non-interactive windows; the interactive window paints only cards. No-activation and per-pixel click-through behavior still requires native validation. Fullscreen detection, monitor selection, and following the active virtual desktop are implemented but need real desktop testing.
 
 **Capture:** built-in rectangular, window, monitor, combined-desktop, and freehand capture; repeat last region with a monitor-layout guard; pixel loupe (`L` toggles it), arrow-key cursor nudges (Shift for 10 pixels), delay; optional cursor; exact physical capture bounds for the app's own flight animation. The regular Windows screenshot directory and extra user-chosen directories can be watched. Snipping Tool clipboard images can be collected; collecting arbitrary clipboard images is separately opt-in. Opposite clipboard/folder arrivals are content-correlated so a dual-delivered screenshot can appear once while same-channel repeated images remain distinct.
 
@@ -69,7 +78,7 @@ Shortcuts are configurable. Registration failure is reported instead of overridi
 
 **Editor polish:** keyboard tool shortcuts, cursor-anchored zoom, actual-size/fit commands, one-pixel annotation nudges, precise line/square constraints, editable layers retained through crop, revision-aware undo, cancellable gestures, grouped slider edits, layer hit-testing, dirty-state titles and improved light/dark/high-contrast control styling. “Base image” hides annotations temporarily but retains the current crop/rotation. `Ctrl+C`/Copy result copies flattened edited pixels without attaching the original source path. Saved files remain flattened; this is not a persistent layered-project format.
 
-These are descriptions of the **source implementation**, not claims that the Windows behaviors have already been observed. [Feature matrix and adaptations](docs/FEATURE_PARITY.md).
+These are descriptions of the **source implementation**, not claims that the Windows behaviors have already been observed. [Feature verification and platform differences](docs/FEATURE_PARITY.md).
 
 ## File handling and privacy
 
@@ -81,15 +90,15 @@ These are descriptions of the **source implementation**, not claims that the Win
 - No application telemetry, analytics, accounts, web service, remote configuration, crash upload, update checking, or automatic updater is implemented. The build does not download dependencies. Compiler/test logs stay local.
 - Copying an image requests exclusion from Windows Clipboard History and Cloud Clipboard upload. This is not a guarantee about Windows settings, third-party clipboard managers, OneDrive-synced folders, or applications you choose to open/share images with.
 
-## Explicit limits before claiming parity
+## Current beta limits
 
-The new three-window shelf composition and virtual accessibility peers have not been exercised on Windows. The frames use a custom translucent approximation, not Apple's live blur/material implementation. External capture files do not reliably provide their screen origin, so only Pegline's own captures have authoritative flight bounds. WebP/HEIF decoding depends on installed Windows codecs; unsupported or multi-frame input formats are saved as a supported separate image when edited. The capture engine reads the visible desktop with GDI; protected content, secure desktops, offscreen window content, and HDR fidelity are not promised. Sketch recognition is heuristic, and signatures use local input rather than Apple's device/camera integrations.
+The three-window shelf create/show/style/hide lifecycle has passed on Windows; real pointer click-through and accessibility navigation acceptance remain pending. The frames use a custom translucent approximation, not Apple's live blur/material implementation. External capture files do not reliably provide their screen origin, so only Pegline's own captures have authoritative flight bounds. WebP/HEIF decoding depends on installed Windows codecs; unsupported or multi-frame input formats are saved as a supported separate image when edited. The capture engine reads the visible desktop with GDI; protected content, secure desktops, offscreen window content, and HDR fidelity are not promised. Sketch recognition is heuristic, and signatures use local input rather than Apple's device/camera integrations.
 
-Most importantly, compilation and Windows acceptance remain outstanding. Mixed DPI, fullscreen detection, cross-desktop behavior, Explorer/Recycle Bin transfer semantics, browser/chat drop targets, and non-activation/click-through behavior are explicit acceptance tests, not assumed successes.
+Compilation, 113 regression tests, six WPF renders, and 13 isolated native controller integration checks have passed. Full desktop acceptance remains outstanding. Mixed DPI, fullscreen detection, cross-desktop behavior, Explorer/Recycle Bin transfer semantics, browser/chat drop targets, and non-activation/click-through behavior are explicit acceptance tests, not assumed successes.
 
 ## Development files
 
-`src/` contains 16 application C# files, `tests/TestProgram.cs` contains 111 authored test cases, and `tools/static_audit.py` is an **optional maintainer-only** Python standard-library source/configuration check. Python is not required to build or run Pegline on Windows. No C# tests have been run in the delivery environment.
+`src/` contains 16 application C# files, `tests/TestProgram.cs` contains 113 passing regression cases, and `tools/static_audit.py` is an **optional maintainer-only** Python standard-library source/configuration check. Python is not required to build or run Pegline on Windows. See [VERIFICATION.md](VERIFICATION.md) for measured Windows results.
 
 Start the Windows validation with disposable screenshots rather than irreplaceable files. The detailed checklist is [WINDOWS_ACCEPTANCE.md](docs/WINDOWS_ACCEPTANCE.md).
 

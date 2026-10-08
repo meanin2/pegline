@@ -17,6 +17,13 @@ if errorlevel 1 (
   exit /b 1
 )
 type bin\visual-smoke.log
+bin\Pegline.Tests.exe --integration-smoke > bin\integration-smoke.log 2>&1
+if errorlevel 1 (
+  type bin\integration-smoke.log
+  popd
+  exit /b 1
+)
+type bin\integration-smoke.log
 echo Inspect bin\visual-smoke and complete docs\WINDOWS_ACCEPTANCE.md.
 popd
 exit /b 0
